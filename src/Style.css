@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Prevents overflow issues */
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+}
+
+.Image-Container {
+    width: 100%;
+    height: auto;
+    background-color: rgb(221, 212, 212);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    /* Adds spacing without overflow */
+}
+
+.Image {
+    width: 20%;
+    height: auto;
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    padding: 10px;
+}
+
+/* Ensures images don't overflow */
+.Image img {
+    width: 95%;
+    height: 80%;
+    border: 2px solid black;
+}
+
+.Image h1 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* ✅ Large Screens (Desktops) - 4x2 Grid */
+@media screen and (min-width: 1200px) {
+    .Image-Container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns */
+        grid-template-rows: repeat(2, auto);
+        /* 2 rows */
+        gap: 15px;
+    }
+
+    .Image {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* ✅ Medium Screens (Tablets & Small Laptops) - 3x2 Grid */
+@media screen and (max-width: 1024px) {
+    .Image-Container {
+        display: flex;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns */
+        grid-template-rows: repeat(2, auto);
+        /* 2 rows */
+        gap: 15px;
+    }
+
+    .Image {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* ✅ Small Tablets & Large Phones - 2 Columns */
+@media screen and (max-width: 768px) {
+    .Image-Container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+
+    .Image h1 {
+        font-size: 16px;
+    }
+}
+
+/* ✅ Small Screens (Phones) - 2x4 Grid */
+@media screen and (max-width: 480px) {
+    .Image-Container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        grid-template-rows: repeat(4, auto);
+        /* 4 rows */
+        gap: 5px;
+    }
+
+    .Image {
+        width: 100%;
+    }
+
+    .Image h1 {
+        font-size: 14px;
+    }
+}
